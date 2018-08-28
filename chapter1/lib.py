@@ -1,9 +1,10 @@
 # Imports:
 import numpy as np
+import matplotlib.pyplot as pl
 
 # Constants:
 ERRO = 1e-2
-STEPS = 1e-2
+STEPS = 1e-1*2
 LOW_LIMIT = -50
 HIGH_LIMIT = 50
 START_A = -2
