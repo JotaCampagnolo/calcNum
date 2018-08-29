@@ -4,7 +4,7 @@ import matplotlib.pyplot as pl
 
 # Constants:
 ERRO = 1e-2
-STEPS = 1e-1*2
+STEPS = 2e-1
 LOW_LIMIT = -100
 HIGH_LIMIT = 100
 START_A = -3
@@ -30,3 +30,4 @@ def f(x):
     #return (np.e**(np.cos(x))) + (x**3) - (3)
     return (0.1*(x**3)) - (np.e**(2*x)) + (2)
     #return (x**3) - (5*(x**2)) + x + 3
+    #return x**2 + 2
