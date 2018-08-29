@@ -15,7 +15,7 @@ for i in space: # Looking for ROOTS of the equation on defined interval:
     points.append(f(i))
 
 if roots[0]: # If there is at least one root in the interval:
-    space = np.arange(roots[0][0]-(2*STEPS), roots[1][-1]+(2*STEPS), STEPS)
+    space = np.arange(roots[0][0]-(1*STEPS), roots[1][-1]+(2*STEPS), STEPS)
 
 points = [] # Fill the points based on the new space:
 for i in space:

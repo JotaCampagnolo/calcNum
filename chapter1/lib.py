@@ -1,4 +1,5 @@
 # Imports:
+from scipy.misc import derivative
 import numpy as np
 import matplotlib.pyplot as pl
 from datetime import datetime
@@ -8,8 +9,9 @@ ERRO = 1e-2
 STEPS = 2e-1
 LOW_LIMIT = -100
 HIGH_LIMIT = 100
-START_A = 1
-START_B = 2
+START_A = -1
+START_B = 0
+START_GUESS = 0.5
 
 # Classes:
 class Table(object):
@@ -27,8 +29,14 @@ class Table(object):
         print("+----------+----------------+----------------+----------------+----------------------+")
 
 # Functions:
-def f(x):
-    return (x**3) - (5*(x**2)) + x + 6
-    #return (np.e**(np.cos(x))) + (x**3) - (3)
-    #return (0.1*(x**3)) - (np.e**(2*x)) + (2)
-    #return x**2 + 2
+#f = lambda x: (x**3) - (5*(x**2)) + x + 6
+#f = lambda x: (np.e**(np.cos(x))) + (x**3) - (3)
+f = lambda x: (0.1*(x**3)) - (np.e**(2*x)) + (2)
+#f = lambda x: x**2 + 2
+#f = lambda x: 2*x**3
+
+def derivada(f):
+    def calculaDev(x, dx=1e-8):
+        return (f(x+dx) - f(x))/dx
+    return calculaDev
+df = derivada(f)
