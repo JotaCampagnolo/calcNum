@@ -2,6 +2,7 @@
 from lib import *
 
 # MAIN:
+time = datetime.now()
 space = np.arange(LOW_LIMIT, HIGH_LIMIT+1, STEPS)
 points = []
 roots = [[],[],[],[]]
@@ -27,20 +28,27 @@ for i in range(len(roots[0])):
 
 roots_str = "" # Fill the graph roots box str:
 for i in range(len(roots[0])):
-    roots_str += "Root {}: ( {:^10.3f} and {:^10.3f} )\n".format(i+1, roots[0][i], roots[1][i])
+    roots_str += "Root {}: ( {:^10.5f} and {:^10.5f} )\n".format(i+1, roots[0][i], roots[1][i])
 
-pl.figure(num=1, figsize=(8,8))
-pl.get_current_fig_manager().window.wm_geometry("+25+50")
-pl.title("Function Graph")
-pl.text(space[0], min(points), roots_str[:-1], style='italic', bbox={'facecolor': 'orange', 'alpha': 0.5, 'pad': 10})
-pl.ylabel("f(x)")
-pl.xlabel("x")
-pl.axhline(y=0, color='grey', linewidth = .5)
-pl.axvline(x=0, color='grey', linewidth = .5)
-pl.plot(space, points, color='blue', linewidth = 1)
+# Creates the plot figure:
+figure = pl.figure(figsize=(12, 8))
+# Figure: plot1:
+plot1 = figure.add_subplot(121)
+plot1.set_title('Function Graph')
+plot1.set_ylabel("f(x)")
+plot1.set_xlabel("x")
+plot1.axhline(y=0, color='grey', linewidth = .5)
+plot1.axvline(x=0, color='grey', linewidth = .5)
+plot1.grid(linestyle='-', color='#eeeeee')
+plot1.plot(space, points, color='blue', linewidth = 1)
 for i in range(len(rpoints[0])):
-    pl.plot(rpoints[0][i], rpoints[1][i], color='orange', linewidth = 2)
-pl.plot(roots[0], roots[2], 'o', color='orange', linewidth = 1)
-pl.plot(roots[1], roots[3], 'o', color='red', linewidth = 1)
-pl.grid(linestyle='-', color='#eeeeee')
-pl.savefig('plots/graph.png', bbox_inches='tight')
+    plot1.plot(rpoints[0][i], rpoints[1][i], color='orange', linewidth = 3)
+plot1.plot(roots[0], roots[2], 'o', color='orange', linewidth = 1)
+plot1.plot(roots[1], roots[3], 'o', color='red', linewidth = 1)
+# Figure: plot2:
+plot2 = figure.add_subplot(122)
+plot2.set_title('Function Roots')
+plot2.axis('off')
+plot2.text(0.16, 0.03, roots_str[:-1], style='italic', bbox={'facecolor': 'orange', 'alpha': 0.5, 'pad': 10})
+# Saves the figure:
+figure.savefig('plots/graph_' + str(time.year) + str(time.month).zfill(2) + str(time.day).zfill(2) + '_' + str(time.hour).zfill(2) + str(time.minute).zfill(2) + str(time.second).zfill(2) + '.png', bbox_inches='tight')
