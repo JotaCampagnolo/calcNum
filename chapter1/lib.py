@@ -5,13 +5,13 @@ import matplotlib.pyplot as pl
 from datetime import datetime
 
 # Constants:
-ERRO = 1e-2
+ERRO = 1e-4
 STEPS = 2e-1
 LOW_LIMIT = -100
 HIGH_LIMIT = 100
-START_A = -3
-START_B = -2.5
-START_GUESS = -2.5
+START_A = 5
+START_B = 5.5
+START_GUESS = 5
 
 # Classes:
 class Table(object):
@@ -29,7 +29,9 @@ class Table(object):
         print("+----------+----------------+----------------+----------------+----------------------+")
 
 # Functions:
-f = lambda x: (x**3) - (5*(x**2)) + x + 6
+f = lambda x: (-2*x**3) + (2*x**2) + x - 1
+#f = lambda x: (3*x**3) - (0.01*np.e**(2*x)) + 2
+#f = lambda x: (x**3) - (5*(x**2)) + x + 6
 #f = lambda x: (np.e**(np.cos(x))) + (x**3) - (3)
 #f = lambda x: (0.1*(x**3)) - (np.e**(2*x)) + (2)
 #f = lambda x: x**2 + 2
