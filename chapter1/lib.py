@@ -9,9 +9,9 @@ ERRO = 1e-2
 STEPS = 2e-1
 LOW_LIMIT = -100
 HIGH_LIMIT = 100
-START_A = -1
-START_B = 0
-START_GUESS = 0.5
+START_A = -3
+START_B = -2.5
+START_GUESS = -2.5
 
 # Classes:
 class Table(object):
@@ -29,11 +29,15 @@ class Table(object):
         print("+----------+----------------+----------------+----------------+----------------------+")
 
 # Functions:
-#f = lambda x: (x**3) - (5*(x**2)) + x + 6
+f = lambda x: (x**3) - (5*(x**2)) + x + 6
 #f = lambda x: (np.e**(np.cos(x))) + (x**3) - (3)
-f = lambda x: (0.1*(x**3)) - (np.e**(2*x)) + (2)
+#f = lambda x: (0.1*(x**3)) - (np.e**(2*x)) + (2)
 #f = lambda x: x**2 + 2
 #f = lambda x: 2*x**3
+#f = lambda x: (1*x**2) - (1*x) + 10
+#f = lambda x: (1*x**3) - (2*x**2) - 10*x + 4
+#f = lambda x: (0.1*x**3) - (np.e**(2*x)) + 2
+#f = lambda x: np.cos(x) / np.sin(x)
 
 def derivada(f):
     def calculaDev(x, dx=1e-8):
