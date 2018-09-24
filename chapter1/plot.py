@@ -4,6 +4,7 @@ from lib import *
 # MAIN:
 time = datetime.now()
 space = np.arange(LOW_LIMIT, HIGH_LIMIT+1, STEPS)
+print(len(space))
 points = []
 roots = [[],[],[],[]]
 for i in space: # Looking for ROOTS of the equation on defined interval:
