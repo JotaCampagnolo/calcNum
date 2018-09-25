@@ -11,7 +11,7 @@ def seidel(A, B, X):
     ITER = 0 # Iterations counter.
     while(abs(M[-1] - M[-2]) > ERRO and ITER < MAX_ITER):
         X = np.dot(np.linalg.inv(L + D), (B - np.dot(U, X)))
-        M.append(sum(abs(X)))
+        M.append(sum(abs(np.dot(A, X) - B)))
         ITER += 1
         printIteration("GAUSS SEIDEL", X, M, ITER)
     # Return the result vector:

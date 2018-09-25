@@ -10,7 +10,7 @@ def jacobi(A, B, X):
     ITER = 0 # Iterations counter.
     while(abs(M[-1] - M[-2]) > ERRO and ITER < MAX_ITER):
         X = (B - np.dot(R, X)) / D
-        M.append(sum(abs(X)))
+        M.append(sum(abs(np.dot(A, X) - B)))
         ITER += 1
         printIteration("GAUSS JACOBI", X, M, ITER)
     # Return the result vector:
