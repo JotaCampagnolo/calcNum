@@ -18,9 +18,12 @@ A = np.array([ # A Matrix:
 ])
 B = np.array([95, 50, 80, 0, 50, 190, 110, 160]) # Independent terms.
 X = np.array([1, 1, 1, 1, 1, 1, 1, 1]) # Guess vector.
-M = [np.inf, sum(abs(np.dot(A, X) - B))] # Vector that store all the results vector module.
 
 # Function:
+def stopCrit(A, B, X):
+    return sum(abs(np.dot(A, X) - B))
+
+
 def printIteration(method, X, M, ITER):
     print("+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~+")
     print("| {:^48} |".format(method + " METHOD"))

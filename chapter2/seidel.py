@@ -9,9 +9,10 @@ def seidel(A, B, X):
     U = np.triu(A, k=1) # Upper from A matrix.
     # Seidel's iteration:
     ITER = 0 # Iterations counter.
+    M = [np.inf, stopCrit(A, B, X)] # Vector that store all the results vector module.
     while(abs(M[-1] - M[-2]) > ERRO and ITER < MAX_ITER):
         X = np.dot(np.linalg.inv(L + D), (B - np.dot(U, X)))
-        M.append(sum(abs(np.dot(A, X) - B)))
+        M.append(stopCrit(A, B, X))
         ITER += 1
         printIteration("GAUSS SEIDEL", X, M, ITER)
     # Return the result vector:
