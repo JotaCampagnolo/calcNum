@@ -6,6 +6,9 @@ def jacobi(A, B, X):
     # Create the submatrices:
     D = np.diag(A) # Creates a vector with the main Diagonal from A matrix.
     R = A - np.diagflat(D) # Subtract the main Diagonal from A matrix.
+    print(A)
+    print(D)
+    print(R)
     # Jacobi's iteration:
     ITER = 0 # Iterations counter.
     M = [np.inf, stopCrit(A, B, X)] # Vector that store all the results vector module.

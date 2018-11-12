@@ -4,20 +4,14 @@ import matplotlib.pyplot as pl
 from datetime import datetime
 
 # Constants:
-ERRO = 1e-6 # Absolute error to stop the program.
+ERRO = 1e-2 # Absolute error to stop the program.
 MAX_ITER = 1000 # Maximum of iterations to stop the program.
 A = np.array([ # A Matrix:
-    [4, -1, -1, 0, 0, 0, 0, 0],
-    [-1, 4, 0, -1, 0, 0, 0, 0],
-    [-1, 0, 4, -1, 0, -1, 0, 0],
-    [0, -1.5, -1.5, 6, -1.5, 0, -1.5, 0],
-    [0, 0, 0, -1, 4, 0, 0, -1],
-    [0, 0, -1, 0, 0, 4, -1, 0],
-    [0, 0, 0, -1, 0, -1, 4, -1],
-    [0, 0, 0, 0, -1, 0, -1, 4]
+    [3, 1],
+    [2, 2]
 ])
-B = np.array([95, 50, 80, 0, 50, 190, 110, 160]) # Independent terms.
-X = np.array([1, 1, 1, 1, 1, 1, 1, 1]) # Guess vector.
+B = np.array([5, 4]) # Independent terms.
+X = np.array([0, 0]) # Guess vector.
 
 # Function:
 def stopCrit(A, B, X):
