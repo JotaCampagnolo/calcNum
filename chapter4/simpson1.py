@@ -20,4 +20,4 @@ def simpson1(ll, ul, n):
     return result * (h / 3)
 
 # MAIN:
-print("%.6f"% simpson1(LOWER_LIMIT, UPPER_LIMIT, INTERVALS))
+print("Simpson1 (1/3): " + str(simpson1(LOWER_LIMIT, UPPER_LIMIT, INTERVALS)))

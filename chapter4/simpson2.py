@@ -17,4 +17,4 @@ def simpson2(ll, ul, n):
     return result * ((3 * h) / 8)
 
 # MAIN:
-print("%.6f"% simpson2(LOWER_LIMIT, UPPER_LIMIT, INTERVALS))
+print("Simpson2 (3/8): " + str(simpson2(LOWER_LIMIT, UPPER_LIMIT, INTERVALS)))
