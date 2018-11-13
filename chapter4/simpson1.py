@@ -20,4 +20,7 @@ def simpson1(ll, ul, n):
     return result * (h / 3)
 
 # MAIN:
-print("Simpson1 (1/3): " + str(simpson1(LOWER_LIMIT, UPPER_LIMIT, INTERVALS)))
+while abs(RESULTS[-1] - RESULTS[-2]) > ERRO:
+    RESULTS.append(simpson1(LOWER_LIMIT, UPPER_LIMIT, INTERVALS))
+    print("Simpson1 (1/3): " + str(INTERVALS) + " : " + str(RESULTS[-1]))
+    INTERVALS += 2
